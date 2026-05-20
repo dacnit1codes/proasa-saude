@@ -22,13 +22,13 @@
                             300: '#93c5fd',
                             400: '#60a5fa',
                             500: '#3b82f6',
-                            600: '#2563eb',
-                            900: '#1e3a8a',
+                            600: '#2563eb', // Azul Vibrante Principal
+                            900: '#1e3a8a', // Azul Escuro Fundo
                             950: '#172554',
                         },
                         footer: {
-                            bg: '#181335',
-                            accent: '#c5ea2d'
+                            bg: '#ffffff',
+                            accent: '#1e3a8a'
                         }
                     },
                     boxShadow: {
@@ -75,6 +75,15 @@
             box-shadow: 0 30px 60px -15px rgba(37, 99, 235, 0.2);
             border-color: #60a5fa;
         }
+
+        /* Ocultar barra de rolagem no modal mantendo funcionalidade */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased bg-mesh relative">
@@ -84,19 +93,20 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20 transition-all" id="nav-content">
                 <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
-                    <!-- Novo Logótipo Tipográfico Proasa Saúde -->
+                    <!-- Logótipo Tipográfico Proasa Saúde -->
                     <span class="text-3xl font-black tracking-tighter lowercase">
                         <span class="text-[#1858A5]">proasa</span><span class="text-[#68CEF5] ml-1.5">saúde</span>
                     </span>
                 </div>
 
                 <nav class="hidden lg:flex space-x-10 items-center">
-                    <a href="#planos" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition">Planos</a>
+                    <a href="#planos" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition">Planos Prontos</a>
                     <a href="https://proasasaude.com.br/rede-credenciada/" target="_blank" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition">Rede Credenciada</a>
                 </nav>
 
                 <div class="hidden lg:flex items-center">
-                    <a href="#planos" class="bg-slate-900 hover:bg-brand-600 text-white px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 shadow-md">
+                    <!-- BOTÃO VER PREÇOS -->
+                    <a href="#planos" class="bg-slate-900 hover:bg-brand-600 text-white px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 shadow-md flex items-center gap-2">
                         Ver Preços
                     </a>
                 </div>
@@ -114,7 +124,7 @@
         <!-- Menu Dropdown Mobile -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-100 absolute w-full shadow-xl">
             <div class="px-4 pt-2 pb-6 space-y-2">
-                <a href="#planos" class="block px-4 py-3 text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-600 rounded-xl transition">Planos</a>
+                <a href="#planos" class="block px-4 py-3 text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-600 rounded-xl transition">Planos Prontos</a>
                 <a href="https://proasasaude.com.br/rede-credenciada/" target="_blank" class="block px-4 py-3 text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-600 rounded-xl transition">Rede Credenciada</a>
             </div>
         </div>
@@ -184,12 +194,82 @@
         </div>
     </section>
 
-    <!-- Plans Section -->
+    <!-- NOVO: Seção de Diferenciais (Abas 01, 02, 03) -->
+    <section id="diferenciais" class="py-20 lg:py-28 bg-[#1858A5] relative z-10 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Aba 01: Cobertura Ampla -->
+                <div class="flex flex-col bg-[#144b8c] p-8 md:p-10 rounded-3xl shadow-lg border border-[#2168bf] hover:-translate-y-2 transition-transform duration-300">
+                    <div class="text-[#00D2D3] font-bold text-sm tracking-wider uppercase mb-5 flex gap-1 items-center">
+                        <span class="font-light text-xl">01 /</span> COBERTURA AMPLA
+                    </div>
+                    <h3 class="text-3xl md:text-4xl font-extrabold mb-6 leading-tight">Cuidado integral para sua saúde</h3>
+                    <p class="text-slate-200 mb-6 leading-relaxed text-base">
+                        Do básico ao especializado. Nós cuidamos da sua saúde por completo.
+                    </p>
+                    <ul class="space-y-4 mb-8 text-slate-200 text-base">
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0"></span> Consultas e exames
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0"></span> Internações
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0"></span> Tratamentos especializados
+                        </li>
+                    </ul>
+                    <p class="text-slate-300 mt-auto pt-6 leading-relaxed text-sm border-t border-white/10">
+                        Fale com um de nossos especialistas para conhecer melhor nossas opções de plano feitos para você.
+                    </p>
+                </div>
+
+                <!-- Aba 02: Rede Credenciada -->
+                <div class="flex flex-col bg-[#144b8c] p-8 md:p-10 rounded-3xl shadow-lg border border-[#2168bf] hover:-translate-y-2 transition-transform duration-300">
+                    <div class="text-[#00D2D3] font-bold text-sm tracking-wider uppercase mb-5 flex gap-1 items-center">
+                        <span class="font-light text-xl">02 /</span> REDE CREDENCIADA DE EXCELÊNCIA
+                    </div>
+                    <h3 class="text-3xl md:text-4xl font-extrabold mb-6 leading-tight">Rede credenciada de excelência</h3>
+                    <p class="text-slate-200 mb-6 leading-relaxed text-base">
+                        Nossa rede credenciada é composta por hospitais, clínicas e profissionais de saúde renomados, o que garante um atendimento de alta qualidade para você e sua família. Temos uma cobertura ampla e uma estrutura moderna, proporcionando segurança e conforto em cada consulta, exame ou procedimento.
+                    </p>
+                    <p class="text-slate-300 mt-auto pt-6 leading-relaxed text-sm border-t border-white/10">
+                        Buscamos constantemente ampliar e aprimorar nossa rede para oferecer sempre o melhor cuidado.
+                    </p>
+                </div>
+
+                <!-- Aba 03: Atendimento de Cuidado -->
+                <div class="flex flex-col bg-[#144b8c] p-8 md:p-10 rounded-3xl shadow-lg border border-[#2168bf] hover:-translate-y-2 transition-transform duration-300">
+                    <div class="text-[#00D2D3] font-bold text-sm tracking-wider uppercase mb-5 flex gap-1 items-center">
+                        <span class="font-light text-xl">03 /</span> ATENDIMENTO DE CUIDADO
+                    </div>
+                    <h3 class="text-3xl md:text-4xl font-extrabold mb-6 leading-tight">Parcerias estratégicas para o seu cuidado</h3>
+                    <p class="text-slate-200 mb-6 leading-relaxed text-base">
+                        Acesso a uma rede de prestadores renomados, com hospitais e clínicas de referência para seu cuidado.
+                    </p>
+                    <ul class="space-y-4 mb-8 text-slate-200 text-base">
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0"></span> Rede Américas
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0"></span> Rede Dasa
+                        </li>
+                    </ul>
+                    <p class="text-slate-300 mt-auto pt-6 leading-relaxed text-sm border-t border-white/10">
+                        Fale com um de nossos especialistas para conhecer melhor nossas opções de plano feitos para você.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section (Exemplos) -->
     <section id="planos" class="py-24 bg-slate-50 relative border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">Consulte Valores</h2>
-                <p class="text-slate-500 text-lg">Preços exclusivos</p>
+                <p class="text-slate-500 text-lg">Preços exclusivos disponibilizados pelo distribuidor i9VARE.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
@@ -257,6 +337,7 @@
                     </div>
 
                     <div class="space-y-3 mb-8 flex-grow">
+                        <!-- Repetir os mesmos 6 items de cima -->
                         <div class="flex items-center gap-3">
                             <svg class="w-5 h-5 text-brand-500 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
                             <p class="text-slate-700 font-medium text-sm">Ampla Rede Credenciada</p>
@@ -397,13 +478,12 @@
         </div>
     </section>
 
-    <!-- NOVO FOOTER INSTITUCIONAL I9VARE -->
+    <!-- FOOTER INSTITUCIONAL -->
     <footer class="bg-white text-slate-800 py-16 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12">
             
-            <!-- Coluna Esquerda: Contato e Logo -->
             <div class="flex flex-col">
-                <!-- Logo i9VARE Simulado em SVG -->
+                <!-- Logo i9VARE -->
                 <div class="flex items-center gap-3 mb-8">
                     <svg class="w-12 h-12 text-brand-900" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M50 10 C 25 10 10 30 10 50 C 10 75 30 90 50 90 C 70 90 90 75 90 50 C 90 30 75 10 50 10 Z M 50 20 C 65 20 80 35 80 50 C 80 65 65 80 50 80 C 35 80 20 65 20 50 C 20 35 35 20 50 20 Z" />
@@ -429,7 +509,6 @@
                     </li>
                 </ul>
 
-                <!-- Redes Sociais -->
                 <div class="flex gap-4">
                     <a href="#" class="w-10 h-10 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center hover:bg-brand-600 hover:text-white transition-all">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -446,40 +525,46 @@
                 </div>
             </div>
 
-            <!-- Coluna Direita: Institucional e Selos -->
             <div class="flex flex-col">
                 <h3 class="text-xl font-bold mb-4 text-slate-900">Institucional</h3>
                 <p class="text-[13px] text-slate-600 leading-relaxed mb-6 font-medium">
                     A i9vare é uma consultoria especializada em Seguros e Benefícios, que acima de tudo, é comprometida em oferecer perspectivas inovadoras para nossos clientes, parceiros e colaboradores. Com foco em nossa missão, buscamos viabilizar ainda mais tranquilidade à sociedade por meio da comercialização de seguros e benefícios de qualidade inquestionável. Dessa forma, garantimos soluções que fazem a diferença na vida das pessoas, sempre orientados por nossos valores de excelência e confiança.
                 </p>
-                
                 <p class="font-bold text-sm mb-6 text-slate-900 tracking-wide">Distribuidor Comercial Autorizado</p>
-                
                 <div>
                     <a href="#" class="inline-block border border-slate-300 rounded-lg px-6 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand-600 transition-colors mb-8">
                         Política de Privacidade
                     </a>
                 </div>
 
-                <!-- Linha de Selos: Proasa e ANS -->
                 <div class="flex flex-wrap items-center gap-x-8 gap-y-4">
-                    
-                    <!-- Selo Proasa (com a nova logo tipográfica) -->
                     <div class="flex flex-col">
                         <span class="text-3xl font-black tracking-tighter lowercase leading-none">
                             <span class="text-[#1858A5]">proasa</span><span class="text-[#68CEF5] ml-1.5">saúde</span>
                         </span>
                         <span class="text-[9px] mt-1.5 tracking-widest uppercase text-slate-500">Operadora de Planos de Saúde</span>
                     </div>
-
-                    <!-- Selo ANS Base -->
-                    <div class="flex items-center gap-2 text-slate-900">
-                        <span class="text-3xl font-black italic tracking-tighter">ANS</span>
-                        <span class="text-[9px] leading-[1.2] max-w-[100px] text-slate-500">Agência Nacional de<br>Saúde Suplementar</span>
+                    
+                    <!-- Selo ANS Oficial -->
+                    <div class="flex items-center gap-1">
+                        <svg class="w-10 h-8" viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Parte Verde Superior -->
+                            <path d="M10 40 C 10 10, 45 5, 70 20 C 45 30, 25 35, 10 40 Z" fill="#75A74E"/>
+                            <!-- Parte Azul Inferior -->
+                            <path d="M90 40 C 90 70, 55 75, 30 60 C 55 50, 75 45, 90 40 Z" fill="#007B8F"/>
+                            <!-- Detalhe Azul Inferior Esquerdo -->
+                            <path d="M10 40 C 10 60, 25 75, 45 65 C 30 60, 20 50, 10 40 Z" fill="#007B8F"/>
+                            <!-- Detalhe Verde Superior Direito -->
+                            <path d="M90 40 C 90 20, 75 5, 55 15 C 70 20, 80 30, 90 40 Z" fill="#75A74E"/>
+                        </svg>
+                        <div class="flex items-center">
+                            <span class="text-3xl font-bold text-[#007B8F] tracking-tighter" style="font-family: Arial, Helvetica, sans-serif;">ANS</span>
+                            <span class="text-[9px] leading-[1.1] ml-1 text-[#007B8F] font-bold">Agência Nacional de<br>Saúde Suplementar</span>
+                        </div>
                     </div>
 
-                    <!-- Código ANS -->
-                    <div class="border border-slate-300 px-3 py-1.5 text-[10px] font-mono tracking-[0.2em] font-bold text-slate-700 bg-white">
+                    <!-- Código ANS Caixa Preta -->
+                    <div class="bg-[#111111] text-white px-4 py-2 rounded text-[13px] font-bold tracking-wide shadow-sm">
                         ANS - 35805-3
                     </div>
                 </div>
@@ -495,19 +580,15 @@
 
     <!-- Pop-up Overlay (Oferta) -->
     <div id="promo-popup" class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-900/60 backdrop-blur-sm transition-opacity duration-300 opacity-0">
-        <!-- Pop-up Content -->
         <div class="bg-white rounded-[2rem] p-8 max-w-md w-[90%] mx-4 relative shadow-2xl transform scale-95 transition-transform duration-300" id="promo-popup-content">
             <button id="close-popup" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-full p-2 transition-colors">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
-            
             <div class="w-16 h-16 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-sm border border-brand-100">
                 <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </div>
-            
             <h3 class="text-3xl font-extrabold text-slate-900 text-center mb-2 tracking-tight">Condição Especial!</h3>
             <p class="text-slate-600 text-center mb-6">A melhor cobertura médica para você ou sua empresa com a menor mensalidade.</p>
-            
             <div class="bg-brand-50 rounded-2xl p-6 text-center mb-6 border border-brand-100 shadow-sm">
                 <span class="text-sm font-bold text-brand-600 uppercase tracking-wider block mb-2">Planos a partir de</span>
                 <div class="flex items-start justify-center text-slate-900">
@@ -517,20 +598,19 @@
                     <span class="text-brand-600 font-bold text-xl ml-1">*</span>
                 </div>
             </div>
-            
             <a href="https://wa.me/5511977650039?text=Ol%C3%A1!%20Vi%20a%20promo%C3%A7%C3%A3o%20no%20site%20e%20gostaria%20de%20garantir%20meu%20plano%20a%20partir%20de%20R$%20230,57." target="_blank" class="w-full bg-[#25D366] hover:bg-[#20bd5a] text-white py-4 rounded-xl font-bold text-lg transition-colors shadow-lg shadow-[#25D366]/30 flex items-center justify-center gap-2 mb-3">
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
                 Garantir pelo WhatsApp
             </a>
-            
             <button id="close-popup-text" class="w-full text-slate-400 hover:text-slate-700 text-sm font-medium transition-colors py-2">
                 Não, obrigado. Quero apenas olhar.
             </button>
         </div>
     </div>
 
-    <!-- Scripts -->
+    <!-- Scripts do Site -->
     <script>
+        // 1. LÓGICA DO MENU MOBILE
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
         const iconMenu = document.getElementById('icon-menu');
@@ -542,15 +622,18 @@
             iconClose.classList.toggle('hidden');
         });
 
+        function fecharMenuMobile() {
+            menu.classList.add('hidden');
+            iconMenu.classList.remove('hidden');
+            iconClose.classList.add('hidden');
+        }
+
         const mobileLinks = menu.querySelectorAll('a');
         mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
-                iconMenu.classList.remove('hidden');
-                iconClose.classList.add('hidden');
-            });
+            link.addEventListener('click', fecharMenuMobile);
         });
 
+        // 2. LÓGICA DO POP-UP PROMOCIONAL
         document.addEventListener('DOMContentLoaded', () => {
             const popup = document.getElementById('promo-popup');
             const popupContent = document.getElementById('promo-popup-content');
@@ -577,15 +660,13 @@
                 }, 300);
             };
 
-            setTimeout(showPopup, 3000);
+            setTimeout(showPopup, 10000); // Aparece aos 10 segundos
 
             closeBtn.addEventListener('click', closePopupFunc);
             closeTextBtn.addEventListener('click', closePopupFunc);
             
             popup.addEventListener('click', (e) => {
-                if (e.target === popup) {
-                    closePopupFunc();
-                }
+                if (e.target === popup) closePopupFunc();
             });
         });
     </script>
